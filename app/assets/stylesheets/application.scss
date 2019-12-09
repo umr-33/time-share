@@ -14,3 +14,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import "./reset.scss";
+@import "./calendar.scss";
+@import "./groups.scss";
+@import "./users.scss";
