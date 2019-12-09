@@ -21,7 +21,17 @@
 $(function () {
 
   $('#calendar').fullCalendar({
-    events: '/events.json'
+    
+    events: '/events.json',
+    eventColer: '#63ceef',
+    eventTextColor
+
   });
 
+  $('#calendar').fullCalendar({
+  height: window.innerHeight - 100, // ①
+  windowResize: function () { // ②
+    $('#calendar').fullCalendar('option', 'height', window.innerHeight - 100);
+    } 
+  });
 });
