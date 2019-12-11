@@ -63,5 +63,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'momentjs-rails'
-gem 'fullcalendar-rails'
 gem 'jquery-rails'
+gem 'simple_calendar', "~> 2.0"

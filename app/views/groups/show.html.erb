@@ -11,7 +11,7 @@
             </li>
           </ul>
         </span>
-        <%= link_to  "＋", new_event_path, class: "get" %>
+        <%= link_to  "＋", new_group_event_path(@group), class: "post" %>
       </div>
     <% else %>
       <div class="grid-6">
@@ -20,10 +20,33 @@
       </div>
     <% end %>
   </div>
+<%= link_to "新規グループ作成", new_group_path, class: 'post' %>
+    <div class='group'>
+      <%= link_to group_path(@group) do %>
+        <div class='groups__name'>
+          <p>グループ名:<%=@group.name%></p>
+        </div>
+      <% end %>
+    </div>
 </header>
 
 
 <body>
+<div class="chat-side">
+  <div class='side-header__box'></div>
 
-<div id="calendar"></div>
+    <p class='side-header__box--user-name'></p>
+
+</div>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.title %>
+    </div>
+  <% end %>
+<% end %>
+
 </body>

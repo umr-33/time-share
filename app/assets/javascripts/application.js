@@ -13,25 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require moment
-//= require fullcalendar
-//= require fullcalendar/lang/ja
 //= require activestorage
 //= require_tree .
 
-$(function () {
-
-  $('#calendar').fullCalendar({
-    
-    events: '/events.json',
-    eventColer: '#63ceef',
-    eventTextColor
-
-  });
-
-  $('#calendar').fullCalendar({
-  height: window.innerHeight - 100, // ①
-  windowResize: function () { // ②
-    $('#calendar').fullCalendar('option', 'height', window.innerHeight - 100);
-    } 
-  });
-});

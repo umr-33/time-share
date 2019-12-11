@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def show
+    user = User.find(params[:id])
+    @groups = user.group.page(params[:page]).per(5).order("created_at DESC")
+
   def edit
   end
 
