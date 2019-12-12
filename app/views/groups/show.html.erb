@@ -1,52 +1,42 @@
-<header class="header">
-  <div class="header__bar row">
-    <h1 class="grid-6"><a href="/">TimeShare</a></h1>
-    <% if user_signed_in? %>
-      <div class="user_nav grid-6">
-        <span><%= current_user.name %>
-          <ul class="user__info">
-            <li>
-              <%= link_to "マイページ", "/users/#{current_user.id}" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
-        </span>
-        <%= link_to  "＋", new_group_event_path(@group), class: "post" %>
-      </div>
-    <% else %>
-      <div class="grid-6">
-        <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-        <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-      </div>
-    <% end %>
-  </div>
-<%= link_to "新規グループ作成", new_group_path, class: 'post' %>
-    <div class='group'>
+<div class="wrapper">
+  <div class="side-ber">
+    <div class="side-ber__user-name">
+      <%= current_user.name %>
+    </div>
+
+    <div class="side-ber__new-group">
+      <%= link_to "新規グループ作成", new_group_path, class: 'post' %>
+    </div>  
+
+    <div class='groups'>
       <%= link_to group_path(@group) do %>
         <div class='groups__name'>
           <p>グループ名:<%=@group.name%></p>
         </div>
       <% end %>
     </div>
-</header>
-
-
-<body>
-<div class="chat-side">
-  <div class='side-header__box'></div>
-
-    <p class='side-header__box--user-name'></p>
-
+  </div>
+  
+  <div class="event-main">
+    <div class="event-new">
+      <%= link_to  "＋", 
+      new_group_event_path(@group), class: "post" %>
+    </div>
+<%= link_to group_event_path(@group), class: "requests", method: :get do %>
+    <div id="requests">
+    <%end%>
+      <%= month_calendar events: @events do |date, events| %>
+        <%=date.to_formatted_s(:short)%>
+        <% events.each do |event| %>
+          <div style="background-color:<%=event.color%>; color:white;">
+            
+            <%= event.title %>
+          </div>
+            
+          <% end %>
+        <% end %>
+    </div>
+  </div>
 </div>
 
-<%= month_calendar events: @events do |date, events| %>
-  <%= date %>
 
-  <% events.each do |event| %>
-    <div>
-      <%= event.title %>
-    </div>
-  <% end %>
-<% end %>
-
-</body>

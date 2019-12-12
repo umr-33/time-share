@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def show
-    user = User.find(params[:id])
-    @groups = user.group.page(params[:page]).per(5).order("created_at DESC")
 
+  end
+  
   def edit
   end
 

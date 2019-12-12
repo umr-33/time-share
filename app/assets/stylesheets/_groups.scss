@@ -1,107 +1,77 @@
-h1 {
-  letter-spacing: 2px;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
+header {
+  border-bottom: 1px solid gray;
+  background-color: #666666;
+
+  height: 80px;
 }
-h2 {
-  margin-bottom: 10px;
-  color: #f05050;
-  font-size: 14px;
+.wrapper {
+  margin: 83px auto 0;
 }
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.wrapper::after {
+  display: block;
+  content: "";
+  clear: both;
 }
-
-li {
-  margin: 0;
-  padding: 0;
-  font-size: 13px;
-}
-
-
-
-.chat-group-form {
-  width: 980px;
-  margin: 60px auto;
-  padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.side-ber {
+  background-color: goldenrod;
+  align-items: center;
+  float: left;
+  line-height: 100px;
+  color: #ffffff;
+  width: 300px;
+  height: 100vh;
+  padding: 0 20px;
   box-sizing: border-box;
-  &__errors {
-    margin: 30px 0;
-    padding: 20px 40px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    text-align: center;
+  &__user-name {
+    height: 100px;
+
   }
-  &__label {
-    display: block;
-    line-height: 50px;
-    font-weight: bold;
-    text-align: right;
+  &__new-group {
+
   }
-  &__input {
-    float: left;
-    width: 100%;
-    line-height: 30px;
-    padding: 10px 15px;
-    box-sizing: border-box;
-  }
-  &__action-btn {
-    display: inline-block;
-    padding: 12px 20px;
-    color: #fff;
-    background-color: #38aef0;
-    border: 0;
-  }
-  &__field {
-    margin-top: 30px;
-    &:after {
-      content: "";
-      clear: both;
-      display: block;
-    }
-    &--left {
-      float: left;
-      width: 30%;
-      padding-right: 20px;
-      padding-left: 20px;
-      box-sizing: border-box;
-    }
-    &--right {
-      float: right;
-      width: 70%;
+  .groups {
+
+  
+
+    &__name {
+
     }
   }
+  
 }
 
-.chat-group-user {
-  padding: 0 15px;
-  line-height: 50px;
-  font-size: 14px;
-  border-bottom: 1px solid #ddd;
-  &:after {
-    content: "";
-    clear: both;
-    display: block;
-  }
-  &__name {
-    float: left;
-  }
-  &__btn {
-    float: right;
-    display: inline-block;
-    cursor: pointer;
-    &--add {
-      color: #38aef0;
-    }
-    &--remove {
-      color: #f05050;
-    }
-  }
+.event-main {
+  width: calc(100vw - 300px);
+  float: left;
+  flex-direction: column;
 }
+.event-new {
+  text-align: center;
+
+}
+
+  .simple-calendar {
+    padding: 20px;
+    .day {}
+  
+    .wday-0 {}
+    .wday-1 {}
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {}
+  
+    .today {}
+    .past {}
+    .future {}
+  
+    .start-date {}
+  
+    .prev-month {}
+    .next-month { }
+    .current-month {}
+  
+    .has-events {}
+  }
+

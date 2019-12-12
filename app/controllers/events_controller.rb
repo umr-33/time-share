@@ -1,19 +1,18 @@
 class EventsController < ApplicationController
-  before_action :set_group, only: []
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
   def index
     @events = Event.all
-    @group = current_user.groups[0]
   end
 
   def new
-    @group = current_user.groups[0]
+    @group = Group.find(params[:group_id])
     @event = Event.new
   end
 
   def create
-    @event = @group.events.new(event_params)
-    if @message.save
-      redirect_to group_events_path(@group)
+    @event = Event.create(event_params)
+    if @event.save
+      redirect_to "/groups/#{@event.group.id}"
     else
       @events = @group.events.includes(:user)
       flash.new[:alert] = '予定を入力してください'
@@ -31,7 +30,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start, :end, :color, :allday)
+    params.require(:event).permit(:title, :start, :end, :color, :allday).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
   def set_group
