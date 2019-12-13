@@ -26,6 +26,7 @@ header.header {
       font-size: 20px;
       line-height: 41px;
       float: left;
+      margin: 10px 30px;
       a {
         display: block;
       }
@@ -87,11 +88,20 @@ header.header {
 
 .wrapper {
   margin: 83px auto 0;
+  background-color: rgb(245, 245, 245);
 }
 .wrapper::after {
   display: block;
   content: "";
   clear: both;
+}
+.form {
+  margin: 0 200px;
+  padding-top: 20px;
+}
+.form-text {
+  padding: 20px;
+  background-color: #fff;
 }
 
 footer {
