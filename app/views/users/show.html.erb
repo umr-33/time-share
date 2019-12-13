@@ -11,9 +11,6 @@
             </li>
           </ul>
         </span>
-        <% current_user.groups.each do |g| %>
-          <%= link_to "#{g.name}", group_path(g.id) %>
-        <%end%>
       </div>
     <% else %>
       <div class="grid-6">

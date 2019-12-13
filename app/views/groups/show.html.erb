@@ -14,21 +14,29 @@
           <p>グループ名:<%=@group.name%></p>
         </div>
       <% end %>
+      <div class="groups__index">グループ一覧
+      <p><% current_user.groups.each do |g| %>
+        <%= link_to "#{g.name}", group_path(g.id) %>
+      
+      
+      <%end%>
+      </div>
     </div>
   </div>
   
   <div class="event-main">
     <div class="event-new">
-      <%= link_to  "＋", 
-      new_group_event_path(@group), class: "post" %>
+      <%= link_to new_group_event_path(@group), class: "post" do%>
+      <i class="fas fa-plus-circle"></i>
+      <%end%>
     </div>
-<%= link_to group_event_path(@group), class: "requests", method: :get do %>
+  <%= link_to group_event_path(@group), class: "requests", method: :get do %>
     <div id="requests">
     <%end%>
       <%= month_calendar events: @events do |date, events| %>
         <%=date.to_formatted_s(:short)%>
         <% events.each do |event| %>
-          <div style="background-color:<%=event.color%>; color:white;">
+          <div style="background-color:<%=event.color%>; color:white; border-radius: 5px; padding: 3px 3px 3px 6px; margin: 2px;">
             
             <%= event.title %>
           </div>

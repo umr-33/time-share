@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
   def index
+
     @events = Event.all
   end
 
@@ -10,13 +11,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
     if @event.save
       redirect_to "/groups/#{@event.group.id}"
     else
-      @events = @group.events.includes(:user)
-      flash.new[:alert] = '予定を入力してください'
-      render :index
+      #@events = @group.events.includes(:user)
+      flash.now[:alert] = '予定を入力してください'
+      render :new
     end
   end
 
