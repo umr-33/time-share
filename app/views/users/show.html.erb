@@ -5,9 +5,10 @@
         <span><%= current_user.name %>
           <ul class="user__info">
             <li>
-              <%= link_to "マイページ", "/users/#{current_user.id}" %>
+              <%= link_to "マイページ", "/groups/#{current_user.id}" %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              <%= link_to "新規グループ作成", new_group_path, class: 'post' %>
+              <%= link_to "新規グループ作成", new_group_path, class: 'post' %>              
+
             </li>
           </ul>
         </span>
