@@ -9,6 +9,34 @@ input {
   border: lightgray 1px solid;
   border-radius: 5px;
 }
+
+
+.contol-label {
+  margin: 5px;
+}
+#event_title {
+  margin: 5px;
+}
+#color-list {
+  margin: 5px;
+}
+.event-form {
+  margin: 10px;
+}
+
+
+input[type="checkbox"]{
+  position: relative;
+  top: 16px;
+  box-sizing: border-box;
+}
+
+
+#day {
+  width: 20px;
+  margin-left: 10px;
+}
+
 .form__inputs button{
   height: 50px;
   width: 100%;

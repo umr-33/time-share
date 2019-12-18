@@ -10,8 +10,6 @@ $(function(){
   });
 });
 
-
-
 </script>
 </head>
 
@@ -33,9 +31,9 @@ $(function(){
     <%= f.date_select :end , {}, class: 'form-control' %>
     <%= f.time_select :end, {}, class: 'form-control' %>
     </p>
-    
-    <label id="label"><input type="checkbox" id="day" name="event[allday]" checked>終日</label>
-    
+    <p class="flex">
+    <label id='check'>終日</label><input type="checkbox" id="day" name="event[allday]"  checked>
+    </p>
     <p class="event-form">
     <label id='label'>color選択</label>
     <input type="hidden" name="event[color]" value="#ffffff" id="color-data">
