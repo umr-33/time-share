@@ -23,7 +23,7 @@
     </div>
     <div class="navi__delete">
       <h4 class="text-danger">
-        <%= link_to '削除する', "/groups/#{@group.id}/events/#{@event.id}", class: "delete-btn", method: :delete, data:
+        <%= link_to '削除する', group_event_path(@group,@event), class: "delete-btn", method: :delete, data:
         { confirm: '本当に削除しますか?',
           cancel: 'やめる',
           commit: '削除する'}, title: '削除確認' %>

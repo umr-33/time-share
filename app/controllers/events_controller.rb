@@ -43,8 +43,12 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @group = Group.where(:id => params[:group_id]).first
-    @event.destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
