@@ -18,12 +18,12 @@
   
   <div class="navi">
     <div class="navi__edit">
-      <%= link_to '予定の編集', edit_group_event_path(@group.events), class: "link_to_edit-btn", 
+      <%= link_to '予定の編集', edit_group_event_path(@group,@event), class: "link_to_edit-btn", 
       method: :get %> 
     </div>
     <div class="navi__delete">
       <h4 class="text-danger">
-        <%= link_to '削除する', "/groups/group_id/#{@event.id}", class: "delete-btn", method: :delete, data:
+        <%= link_to '削除する', "/groups/#{@group.id}/events/#{@event.id}", class: "delete-btn", method: :delete, data:
         { confirm: '本当に削除しますか?',
           cancel: 'やめる',
           commit: '削除する'}, title: '削除確認' %>

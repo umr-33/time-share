@@ -29,14 +29,21 @@ class EventsController < ApplicationController
   end
 
   def edit
-
-
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to root_path, notice: 'グループを更新しました'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @group = Group.where(:id => params[:group_id]).first
     @event.destroy
   end
 

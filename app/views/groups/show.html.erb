@@ -38,7 +38,7 @@
         <% events.each do |event| %>
           <%= link_to group_event_path(@group, event), id: "requests", method: :get do %>
         <div id="requests">
-          <div style="background-color:<%=event.color%>; color:white; border-radius: 5px; padding: 3px 3px 3px 6px; margin: 2px;">
+          <div style="background-color:<%=event.color%>; color: #666666; border-radius: 5px; padding: 3px 3px 3px 6px; margin: 2px;">
             
             <%= event.title %>
           </div>
