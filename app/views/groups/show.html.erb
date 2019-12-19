@@ -26,21 +26,23 @@
   
   <div class="event-main">
     <div class="event-new">
-      <%= link_to new_group_event_path(@group), class: "post" do%>
+      <%= link_to new_group_event_path(@group,@event), class: "post" do%>
       <i class="fas fa-plus-circle"></i>
       <%end%>
     </div>
-  <%= link_to group_event_path(@group), class: "requests", method: :get do %>
-    <div id="requests">
-    <%end%>
+
+    
+  
       <%= month_calendar events: @events do |date, events| %>
         <%=date.to_formatted_s(:short)%>
         <% events.each do |event| %>
+          <%= link_to group_event_path(@group, event), id: "requests", method: :get do %>
+        <div id="requests">
           <div style="background-color:<%=event.color%>; color:white; border-radius: 5px; padding: 3px 3px 3px 6px; margin: 2px;">
             
             <%= event.title %>
           </div>
-            
+            <%end%>
           <% end %>
         <% end %>
     </div>

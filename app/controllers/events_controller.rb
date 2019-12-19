@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_item, only: [:edit, :show, :update, :destroy]
-  def index
+  before_action :set_group, only: [:edit, :show, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show]
 
+  def index
     @events = Event.all
   end
 
@@ -15,10 +16,21 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to "/groups/#{@event.group.id}"
     else
-      #@events = @group.events.includes(:user)
+      
       flash.now[:alert] = '予定を入力してください'
       render :new
     end
+  end
+
+  def show
+    @group = Group.where(:id => params[:group_id]).first
+    @event = @group.events.where(:id => params[:id]).first
+  
+  end
+
+  def edit
+
+
   end
 
   def update
@@ -36,5 +48,9 @@ class EventsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
