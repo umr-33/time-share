@@ -25,13 +25,11 @@ $(function(){
     <%= f.text_field :title, class: 'form-control' %>
     <p class="event-form">
     <label class="contol-label" for="">開始</label>
-    <%= f.date_select :start, {}, class: 'form-control' %>
-    <%= f.time_select :start, {}, class: 'form-control' %>
+    <%= f.datetime_select :start, {}, class: 'form-control' %>
     </p>
     <p class="event-form">
     <label class="contol-label" for="">終了</label>
-    <%= f.date_select :end , {}, class: 'form-control' %>
-    <%= f.time_select :end, {}, class: 'form-control' %>
+    <%= f.datetime_select :end , {}, class: 'form-control' %>
     </p>
     
     <label id="label"><input type="checkbox" id="day" name="event[allday]" checked>終日</label>
